@@ -3,8 +3,6 @@ package com.softwareintitute.davis.gareth.minesweeper;
 import java.util.Random;
 
 public class MinesweeperGrid {
-
-
     private int width;
     private int length;
     private Tile[][] board;
