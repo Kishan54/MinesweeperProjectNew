@@ -88,6 +88,7 @@ public class MinesweeperGrid {
 
     public void setFlag(){
         //todo
+
     }
 
     public void winGame(){
