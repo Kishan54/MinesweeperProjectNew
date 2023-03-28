@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        boolean gameFinished = false;
+
+        boolean menuOut = false;
         int userInput;
         Scanner scanner = new Scanner(System.in);
         do {
@@ -15,18 +16,25 @@ public class Main {
             userInput = scanner.nextInt();
             if (userInput == 1){
                 MinesweeperGrid myGrid = new MinesweeperGrid(5,5,10);
-                int xCord;
-                int yCord;
-                System.out.println(myGrid);
-                System.out.println("Please enter X coordinate");
-                xCord = scanner.nextInt();
-                System.out.println("Please enter Y coordinate");
-                yCord = scanner.nextInt();
-                System.out.println(myGrid.revealSquare(xCord,yCord));
+                boolean gameFinished = false;
+                do {
+                    int xCord;
+                    int yCord;
+                    System.out.println(myGrid);
+                    System.out.println("Please enter X coordinate");
+                    xCord = scanner.nextInt();
+                    System.out.println("Please enter Y coordinate");
+                    yCord = scanner.nextInt();
+                    System.out.println(myGrid.revealSquare(xCord,yCord));
+                    if (myGrid.isGameDone()){
+                        gameFinished = true;
+                    }
+                } while (gameFinished == false);
+
             } else if (userInput == 2){
-                gameFinished = true;
+                menuOut = true;
             }
-        } while (gameFinished = false);
+        } while (menuOut == false);
 
     }
 }

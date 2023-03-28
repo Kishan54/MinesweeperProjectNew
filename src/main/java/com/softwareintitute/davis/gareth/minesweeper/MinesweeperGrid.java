@@ -7,12 +7,14 @@ public class MinesweeperGrid {
     private int length;
     private Tile[][] board;
     private int numberOfMines;
+    private boolean isGameDone;
 
     public MinesweeperGrid(int length,int width, int numberOfMines){
         this.length = length;
         this.width = width;
         this.numberOfMines = numberOfMines;
         board = new Tile[this.length][this.width];
+        isGameDone = false;
         initaliseTiles();
         placeMines();
         calculateNeighbours();
@@ -101,6 +103,15 @@ public class MinesweeperGrid {
                 board[i][j].revealTile();
             }
         }
+        setGameDone(true);
         return this.toString();
+    }
+
+    public boolean isGameDone() {
+        return isGameDone;
+    }
+
+    public void setGameDone(boolean gameDone) {
+        isGameDone = gameDone;
     }
 }
